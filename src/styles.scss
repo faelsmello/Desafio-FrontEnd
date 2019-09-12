@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url('assets/fonts/Roboto-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Roboto Medium'), local('Roboto-Medium'), url('assets/fonts/Roboto-Medium.woff') format('woff');
+}
+
+body {
+    margin: 0;
+    background-color: #f5f7fa;
+    background-image: url('assets/Illustration.svg');
+    background-position:  0% 100%;
+    background-repeat: repeat no-repeat;
+    background-size: 50%;
+    background-attachment: fixed;
+    font-size: 16px;
+    @media only screen and (max-device-width: 800px) { 
+        background-size: 180%;
+    }
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+        @media (min-width: 1200px) {
+            max-width: 1140px;
+        }
+        @media only screen and (max-device-width: 800px) { 
+            max-width: 100%;
+        }
+    }
+}

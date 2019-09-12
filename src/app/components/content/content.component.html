@@ -1,0 +1,110 @@
+<main class="container">
+    <section>
+        <h3>Você está a poucos passos de otimizar suas campanhas</h3>
+        <h5>Queremos conhecer mais sobre sua empresa para melhorar suas experiência voxus</h5>
+    </section>
+    <section>
+        <div class="content">
+            <form [formGroup]="leadForm" (ngSubmit)="onSubmit()">
+                <div class="form-field">
+                    <div class="form-field__control">
+                        <label for="name" class="form-field__label">Nome Completo</label>
+                        <input id="name" type="text" formControlName="name" class="form-field__input"
+                            aria-label="Nome Completo" required />
+                        <div *ngIf="submitted && statusFields.name.errors"
+                            class="form-field__error">
+                            <span *ngIf="leadForm.controls['name'].errors.required">Este campo é obrigatório!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <div class="form-field__control">
+                        <div class="--phone">
+                            <div class="flag-container__phone">
+                                <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <rect width="16" height="12" fill="url(#pattern0)"/> <defs> <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"> <use xlink:href="#image0" transform="scale(0.03125 0.0416667)"/> </pattern> <image id="image0" width="32" height="24" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAAXNSR0IArs4c6QAABUxJREFUSA29Vm1sU1UYfu5tb3vbdS0dmytjQ9nGNgcaN/GH4teMG6hDNOwPfqJmiSLqD/3hEqPoD0NiiFETEwN+hZioi4gmBiMLi+IiyHDAJAP5iDi3sbLus7T39ra9Pqe3swUmq/zYSU5O7+15z/u8z/u877kS1pashiRtBaRizOkwh2GarRJaFp69cudmGrJ0hdDNYfu/zhtzJYBOk0kgEefKCTq32QCZR8lccx27h4VtMa3+xzCFczqNRQAtjGI5jkgiiSlZBVQPoLgsEFLujMg5u08mAEMDIuPA+BAe9BjovacSh5oqsMIWBiaYyegEEI8BJhnKccwOQESdMKyowyPwTg3ik7oS7FhZjSJVRrlXwY+rl+LNSj+U8QHgfMjam0rPtEb+G83lAYhI4jojm0xFfaei4UjzMjx+bQGjJCPpaZOSaFsewL6matTGydBEkDZTtCXwWdiYGUAqauZaZ67DIagTA9hS5UPHvZUo88iUgYEkWTGTdCAiTc/6IicOrqnB8wEF0vgg2Riz0ibSh5nZuFSEArGgXD/PA0ZRZ49he2M5avwO6LqGiBbHyXPFeLdrPQ4N3wiX044Vi3vx4u2f4mr/IFQWwju3BtB8xoMn9vdjwIgCbj/gFAJVKPwLBco+UGpBa7yKkQihWZTbmO+2ci9eXV4ERZagGwmMTeroPlOK1zs24+AhE2aeAy6fCl++Awv9GtofeQnXFAyJwkyNUS2BDV1D+CJElvILCYKVYndYlZIqQ1Ywar2bUrsXuy26SNuSRAjf3hLAY1VebiA+shKLGQhNRKBU70Lb+mo82uSHO6zhaM8ogmMxjOgKguH5aK7phCyZBGHCRTZaFnuwhIHv6Q9C42mw8UH0i9NML0dGA3QiUXDPLDDQs2ohbhYtwhQisqaEOOxyEu+1j6Nr/yhKS1W89nIFTuy5Cds2BlBt17GzpwqRiEZtZuyE/cOVLhxuCqAhj06FqIXG0iMDgC/sRL6IqVLZYJASGA9Kr3YpAa9Lws7uMO567iTqVx3A1o/+hB6LY+0DRdj7WS02NhciEo0yk+wFF9mXuU20lNgZsWB0JgAUh2Fzou2UDbf9MIwTY2w6JoGkp11OIJ8AWur7UFgxH384PHjhwxCuX/kbtrcP4XDfFHr7OhlEAlKWnbAXZzXsDuLZYxKSNmogS4gZEd49LUKqlh3NfX4Em6tUbKxVmc9pWQFnJsqw7quPcS7sQThiYGxKZ7Ua8OeH8c1DrbhhURB5qgKZwo0nTWw5GsWmUzo0N0Xo9rFds22Le6ODvYIjI8IKKlRmRkSpKE4YdhW7ghp++iuMhkIZPodor0nMc46hsbwTI9ESTMUXoCAfuG/pAXyw5hVcV8IyVCTYmMqeEQP3/xzG9nEVcW+AzudZd4WNzgUDp1nmHBkGsm9DkaPUpWOx4Y2ew9vVDjwp5HzJyORT/MXKwxtHYnjrb+otj1G7vOmoqfws6pEuQ8KZYYiNolycZITrJGl76kQIOwYj2LZcQcCdSUm29d6zSbQeNnBcItV+Nh9HHpXNc6QLtJ5tklWGF7xOP4h6FTkT9M0rwXfGfCzr1PH5aVFmmbtgUmfD+TWGO7olHHcuAHykXGXkoulcxrnwMjMD2WBSbHCbk9GQjRABrTsWwtdno3i/TsIvIyY2/G6i384Lyk+gTjY0wd4sjqddzA4gtZOUT7ORWp34knfF9/s0TCbIkodOHZwUr/VVNHOKpp1mrzkCSJsINkRO02AmxaeZeCeexcwx6osA8OtUfBGnVZn95xz8HmRnNFvpyOoKc+Axy8UgL7mn/wGEwh7+iai8VAAAAABJRU5ErkJggg=="/> </defs> </svg>
+                                <i class="material-icons">arrow_drop_down</i>
+                            </div>
+                            <div class="label-container__phone">
+                                <label for="name" class="form-field__label">Telefone</label>
+                                <input id="name" formControlName="phone" type="text" class="form-field__input"
+                                    aria-label="Nome Completo" required />
+                            </div>
+                        </div>
+                        <div *ngIf="submitted && statusFields.phone.errors"
+                            class="form-field__error">
+                            <span *ngIf="leadForm.controls['phone'].errors.required">Este campo é obrigatório!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <div class="form-field__control">
+                        <label for="email" class="form-field__label">Endereço de E-mail</label>
+                        <input id="email" type="text" formControlName="email" class="form-field__input"
+                            aria-label="Endereço de e-mail" required />
+                        <div *ngIf="submitted && statusFields.phone.errors"
+                            class="form-field__error">
+                            <span *ngIf="leadForm.controls['email'].errors.required">Este campo é obrigatório!</span>
+                            <span *ngIf="leadForm.controls['email'].errors.email">E-mail inválido!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <div class="form-field__control">
+                        <label for="company" class="form-field__label">Nome da empresa</label>
+                        <input id="company" type="text" formControlName="company" class="form-field__input"
+                            aria-label="Nome da empresa" required />
+                        <div *ngIf="submitted && statusFields.phone.errors"
+                            class="form-field__error">
+                            <span *ngIf="leadForm.controls['company'].errors.required">Este campo é obrigatório!</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-field">
+                    <div class="form-field__control">
+                        <label for="url" class="form-field__label">URL do site</label>
+                        <input id="url" type="text" formControlName="url" class="form-field__input"
+                            aria-label="URL do site" required />
+                        <div *ngIf="submitted && statusFields.phone.errors"
+                            class="form-field__error">
+                            <span *ngIf="leadForm.controls['url'].errors.required">Este campo é obrigatório!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <div class="form-field__control" (click)="dropdown = !dropdown">
+                        <div class="form-field__dropdown" [ngClass]="{'--selected' : modelMoney }">
+                            <span> {{ modelMoney ? modelMoney : 'Verba mensal em mídia' }} </span>
+                            <i class="material-icons">arrow_drop_down</i>
+                        </div>
+                        <ul class="dropdown__content" *ngIf="dropdown">
+                            <li class="dropdown-list__items" *ngFor="let money of arrMoney"
+                                (click)="modelMoney = money">{{ money }}</li>
+                        </ul>
+                        <input [(ngModel)]="modelMoney" type="hidden" formControlName="money" required>
+                        <div *ngIf="submitted && statusFields.phone.errors"
+                            class="form-field__error">
+                            <span *ngIf="leadForm.controls['money'].errors.required">Este campo é obrigatório!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <div class="form-field__control button">
+                        <button type="submit" class="form-field__button animated" [disabled]="valid"> {{ valid ? 'Obrigado!' : 'Experimentar gratuitamente' }}</button>
+                    </div>
+                </div>
+            </form>
+            <p class="finish animated">Entraremos em contato em até 24hs úteis.</p>
+        </div>
+    </section>
+
+    <section>
+        <p class="end animated">*Para usar o trial grátis você precisa ser um e-commerce e concordar com os termos e requisitos do trial gratuito. Saiba mais em: <a href="/">Termos e requisitos trial gratuito</a></p>
+    </section>
+</main>

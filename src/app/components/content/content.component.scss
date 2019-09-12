@@ -1,0 +1,270 @@
+$Roboto: "Roboto";
+$animation-duration: 0.4s;
+
+@mixin defaultFont() {
+  font-family: $Roboto;
+  font-style: normal;
+  text-align: center;
+}
+
+@mixin defaultForm() {
+  background: #ffffff;
+  border: 1px solid rgba(116, 130, 150, 0.2);
+  box-sizing: border-box;
+  border-radius: 3px;
+  min-height: 42px;
+  max-height: 42px;
+  width: 100%;
+  font-size: 1rem;
+  font-family: $Roboto;
+  i {
+    font-size: 1rem;
+  }
+  
+}
+
+@mixin label-active() {
+  font-size: 0.75rem;
+  transform: translateY(-18px);
+  background: #fff;
+  padding: 0 5px;
+  font-size: 0.8rem;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  section {
+    max-width: 680px;
+    width: 100%;
+    h3 {
+      @include defaultFont();
+      font-weight: 500;
+      color: #2d3a40;
+      font-size: 2.2rem;
+      margin-block-end: 1rem;
+      @media only screen and (max-device-width: 800px) {
+        font-size: 1.8rem;
+      }
+    }
+    h5 {
+      @include defaultFont();
+      font-weight: 400;
+      color: #748296;
+      font-size: 0.9rem;
+    }
+    p {
+        font-family: $Roboto;
+        font-size: .8rem;
+        font-weight: 400;
+        opacity: 0;
+        &.finish {
+            color: #2D3A40;
+            margin-top: 0px;
+        }
+        &.end {
+            text-align: center;
+           color: #748296;
+           a {
+               color: #3c81fa;
+               text-decoration: none;
+           }
+        }
+    }
+    .content {
+      background: #ffffff;
+      box-shadow: 0px 4px 40px rgba(116, 130, 150, 0.2);
+      border-radius: 3px;
+      padding: 1rem 6rem;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 1.5rem;
+      align-items: center;
+      margin-bottom: .8rem;
+      @media only screen and (max-device-width: 800px) {
+        padding: 1rem 2rem;
+      }
+      form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+      .form-field {
+        display: block;
+        margin-bottom: 1.6rem;
+        width: 100%;
+        &--is-active {
+          .form-field__label {
+            color: rgba(45, 58, 64, 0.3);
+            @include label-active();
+          }
+        }
+        &--is-filled {
+          .form-field__label {
+            @include label-active();
+          }
+        }
+      }
+      .form-field__label {
+        font-family: $Roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        color: rgba(45, 58, 64, 0.3);
+        position: absolute;
+        left: 0.6rem;
+        top: 0.6rem;
+        padding: 0 0.6rem 0 0.2rem;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+      }
+      .form-field__control {
+        position: relative;
+        width: 100%;
+        @include defaultForm();
+        .--phone {
+          display: flex;
+          align-items: center;
+          .flag-container__phone {
+            padding: 0.4rem;
+            display: flex;
+            align-items: center;
+            img {
+                max-width: 70%
+            }
+          }
+          .label-container__phone {
+            position: relative;
+            border-left: 1px solid rgba(116, 130, 150, 0.2);
+          }
+        }
+        &.button {
+          border: none;
+        }
+        @media only screen and (max-device-width: 800px) {
+          max-width: 250px;
+        }
+      }
+      .form-field__input {
+        padding: 0.6rem 1rem;
+        outline: none;
+        font-size: 1rem;
+        font-family: $Roboto;
+        font-weight: 400;
+        border: none;
+        background: transparent;
+        &:focus {
+          border-color: #2b6cf5;
+        }
+      }
+      .form-field__dropdown {
+        padding: 0.6rem 1rem;
+        position: relative;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        color: rgba(45, 58, 64, 0.3);
+        font-family: $Roboto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        &.--selected {
+          color: #000000;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+      .dropdown__content {
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        list-style: none;
+        padding-inline-start: 0;
+        background: #ffffff;
+        border: 1px solid #e3e6ea;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 10px rgba(116, 130, 150, 0.2);
+        border-radius: 3px;
+        position: absolute;
+        z-index: 2;
+        margin-block-start: 2px;
+        width: 100%;
+        padding: 0.5rem;
+        .dropdown-list__items {
+          font-family: $Roboto;
+          color: #2d3a40;
+          padding: 0.6rem;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 0.8rem;
+          cursor: pointer;
+        }
+      }
+      .form-field__error {
+        font-size: 0.65rem;
+        background: #f0175c;
+        color: #fff;
+        font-family: $Roboto;
+        padding: 0.3rem 0.6rem;
+        border-radius: 0 0 4px 4px;
+        width: fit-content;
+        padding-right: 2.5rem;
+        margin-top: -2px;
+        font-weight: 500;
+        transition: all ease-in .4s;
+      }
+      .form-field__button {
+        width: 100%;
+        color: #ffffff;
+        background: #14e298;
+        border-radius: 3px;
+        font-family: $Roboto;
+        border: none;
+        font-weight: 500;
+        padding: 0.65rem 0.2rem;
+        font-size: 1rem;
+        outline: none;
+        &:hover {
+          background: #23f7ab;
+        }
+        &:disabled {
+          color: #14e298;
+          background: #ffffff;
+          border: solid 1px #14e298;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn { 
+    0% {opacity:0} to {opacity:1}
+}
+.fadeIn{-webkit-animation-name:fadeIn; animation-name:fadeIn}
+.animated {
+    -webkit-animation-duration:1s;animation-duration:1s;
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both
+}
+@-webkit-keyframes fadeOutIn{
+    0% {opacity:1} to {opacity:.5}
+    25% {opacity:.5} to {opacity:0}
+    50% {opacity:0} to {opacity:.5}
+    100%{opacity:.5} to {opacity:1}
+}
+@keyframes fadeOutIn{
+    0% {opacity:1} to {opacity:.5}
+    25% {opacity:.5} to {opacity:0}
+    50% {opacity:0} to {opacity:.5}
+    100%{opacity:.5} to {opacity:1}
+}
+.fadeOutIn{-webkit-animation-name:fadeOutIn;animation-name:fadeOutIn}
+
+    
